@@ -8,6 +8,7 @@ export default function Home() {
   const [mission, setMission] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<any[]>([]);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +28,7 @@ export default function Home() {
 
       const data = await response.json();
       setResults(data.results);
+      setHasSearched(true);
     } catch (error) {
       console.error('Error:', error);
       // Fallback or error handling
@@ -115,7 +117,27 @@ export default function Home() {
       </section>
 
       {/* Results Dashboard */}
-      {results.length > 0 && (
+      {isLoading ? (
+        <div className="max-w-7xl mx-auto px-6 py-20 text-center animate-pulse">
+          <div className="inline-flex p-4 bg-blue-50 rounded-2xl mb-4">
+            <Loader2 className="w-8 h-8 text-blue-600 animate-spin" />
+          </div>
+          <p className="text-slate-500 font-medium">Agents are scouting maritime registries...</p>
+        </div>
+      ) : hasSearched && results.length === 0 ? (
+        <section className="max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
+          <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center space-y-4 shadow-sm">
+            <div className="inline-flex p-4 bg-amber-50 rounded-2xl">
+              <Ship className="w-8 h-8 text-amber-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900">No Match Found</h2>
+            <p className="text-slate-500 max-w-md mx-auto leading-relaxed">
+              Our agents couldn't find a vessel matching your exact specifications.
+              Try broadening your mission requirements or checking a different operating region.
+            </p>
+          </div>
+        </section>
+      ) : results.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 py-20 border-t border-slate-200">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="space-y-2">
@@ -128,11 +150,9 @@ export default function Home() {
               <p className="text-slate-500 font-medium">Found {results.length} vessels matching your mission requirements.</p>
             </div>
             <div className="flex gap-2">
-              <span className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 shadow-sm">Region: Pacific</span>
-              <span className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 shadow-sm">Target: June 2026</span>
+              <span className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-xs font-bold text-slate-600 shadow-sm">Region: Search Results</span>
             </div>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-slide-up">
             {results.map((vessel, index) => (
               <VesselCard key={index} {...vessel} />
