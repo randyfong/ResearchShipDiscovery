@@ -1,0 +1,27 @@
+analyze_task:
+  description: >
+    Analyze the following mission statement: {mission_statement}. Identify geographic requirements, equipment needs (especially ROV/AUV), and timing.
+  expected_output: >
+    A structured summary of geographic region, equipment specs, and timeline.
+
+scout_task:
+  description: >
+    Search for research vessels that match the requirements. Use the scraper tool on 'http://localhost:8000/static/registry.html' to find vessel details.
+  expected_output: >
+    A list of vessels with their names, operators, current operating regions, home ports, and available equipment.
+
+match_task:
+  description: >
+    Rank the vessels found by the scout. 
+    For each vessel, provide:
+    - name (string)
+    - home_port (string)
+    - operating_region (string, distinct from Home Port)
+    - equipment (list of strings)
+    - confidence_score (integer 0-100)
+    - operator (string, the operator name)
+    - description (string, a brief explanation of the match)
+    
+    Format the output as a valid JSON list of objects. DO NOT use any other keys than the ones specified above.
+  expected_output: >
+    A JSON list of vessel matches following the exact lowercase key schema.

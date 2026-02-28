@@ -2,14 +2,44 @@
 > frontend@0.1.0 dev
 > next dev --port 3000
 
-⨯ Failed to start server
-Error: listen EADDRINUSE: address already in use :::3000
-    at <unknown> (Error: listen EADDRINUSE: address already in use :::3000)
-    at new Promise (<anonymous>) {
-  code: 'EADDRINUSE',
-  errno: -48,
-  syscall: 'listen',
-  address: '::',
-  port: 3000
-}
-[?25h
+  ▲ Next.js 15.0.0
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 1230ms
+ ○ Compiling / ...
+ ✓ Compiled / in 1332ms (618 modules)
+ GET / 200 in 1585ms
+ ✓ Compiled in 141ms (295 modules)
+ ✓ Compiled /favicon.ico in 156ms (355 modules)
+ GET /favicon.ico 200 in 218ms
+ GET / 200 in 78ms
+ GET /favicon.ico 200 in 35ms
+ GET / 200 in 97ms
+ GET /favicon.ico 200 in 7ms
+ GET / 200 in 64ms
+ GET /favicon.ico 200 in 16ms
+ ✓ Compiled in 749ms (609 modules)
+ GET / 200 in 133ms
+ ✓ Compiled /favicon.ico in 93ms (355 modules)
+ GET /favicon.ico 200 in 172ms
+ GET / 200 in 138ms
+ GET /favicon.ico 200 in 10ms
+ GET / 200 in 40ms
+ GET /favicon.ico 200 in 7ms
+ GET / 200 in 32ms
+ GET /favicon.ico 200 in 10ms
+ GET / 200 in 55ms
+ GET /favicon.ico 200 in 15ms
+ GET / 200 in 38ms
+ GET /favicon.ico 200 in 39ms
+ GET / 200 in 60ms
+ GET /favicon.ico 200 in 24ms
+ GET / 200 in 62ms
+ GET /favicon.ico 200 in 125ms
+ GET /favicon.ico 200 in 123ms
+ ✓ Compiled /_not-found in 484ms (639 modules)
+ GET /apple-touch-icon-precomposed.png 404 in 613ms
+ GET /apple-touch-icon.png 404 in 604ms
+ GET / 200 in 188ms
+ GET /favicon.ico 200 in 35ms
