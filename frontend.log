@@ -43,3 +43,8 @@
  GET /apple-touch-icon.png 404 in 604ms
  GET / 200 in 188ms
  GET /favicon.ico 200 in 35ms
+ GET / 200 in 77ms
+ GET /favicon.ico 200 in 29ms
+ GET /registry.html 404 in 47ms
+ GET /registry.html 404 in 25ms
+ GET /backend/registry.html 404 in 91ms
